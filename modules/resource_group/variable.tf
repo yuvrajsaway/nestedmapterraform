@@ -1,0 +1,8 @@
+variable "rgname" {
+ 
+}
+
+variable "rgloation" {
+  
+}
+
