@@ -1,11 +1,11 @@
 variable "resourcegroup" {
- 
- type = map(any)
+
+  type = map(any)
 }
 
 variable "virtualnetwork" {
-    type = map(any)
-  
+  type = map(any)
+
 }
 
 variable "virtualsubnet" {

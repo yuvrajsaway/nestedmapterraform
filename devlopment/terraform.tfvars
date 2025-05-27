@@ -33,12 +33,12 @@ virtualsubnet = {
 
 }
 
-networknic ={
+networknic = {
   nic01 = {
-    name = "networknic01"
-    location = "West Us"
-    resource_group_name = "rgroup001"
-    subnet_id = "backendsubnet"
+    name                          = "networknic01"
+    location                      = "West Us"
+    resource_group_name           = "rgroup001"
+    
     private_ip_address_allocation = "Dynamic"
   }
 }

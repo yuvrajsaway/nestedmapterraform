@@ -17,23 +17,22 @@ module "virtualnetwork" {
 }
 
 module "virtualsubnet" {
-  depends_on = [module.virtualnetwork]
-  source      = "../modules/subnet"
-  for_each    = var.virtualsubnet
-  subnet_name = each.value.subnetname
-  rgname      = each.value.resource_group_name
-  vnetname    = each.value.vnetname
+  depends_on       = [module.virtualnetwork]
+  source           = "../modules/subnet"
+  for_each         = var.virtualsubnet
+  subnet_name      = each.value.subnetname
+  rgname           = each.value.resource_group_name
+  vnetname         = each.value.vnetname
   address_prefixes = each.value.address_prefixes
 }
 
 module "networknic" {
-  depends_on = [module.virtualsubnet]
-  source = "../modules/networknic"
-  for_each = var.networknic
-  nicname = each.value.name
-  rgloation = each.value.location
-  rgname = each.value.resource_group_name
-  subnet_name = each.value.subnet_id
+  depends_on                    = [module.virtualsubnet]
+  source                        = "../modules/networknic"
+  for_each                      = var.networknic
+  nicname                       = each.value.name
+  rgloation                     = each.value.location
+  rgname                        = each.value.resource_group_name
   private_ip_address_allocation = each.value.private_ip_address_allocation
-  
+
 }
